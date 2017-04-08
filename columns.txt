@@ -1,0 +1,52 @@
+Unique Key|0|INT
+Created Date|1|DATETIME
+Closed Date|2|DATETIME
+Agency|3|TEXT
+Agency Name|4|TEXT
+Complaint Type|5|TEXT
+Descriptor|6|TEXT
+Location Type|7|TEXT
+Incident Zip|8|INT
+Incident Address|9|TEXT
+Street Name|10|TEXT
+Cross Street 1|11|TEXT
+Cross Street 2|12|TEXT
+Intersection Street 1|13|TEXT
+Intersection Street 2|14|TEXT
+Address Type|15|TEXT
+City|16|TEXT
+Landmark|17|TEXT
+Facility Type|18|TEXT
+Status|19|TEXT
+Due Date|20|DATETIME
+Resolution Action Updated Date|21|DATETIME
+Community Board|22|TEXT
+Borough|23|TEXT
+X Coordinate (State Plane)|24|INT
+Y Coordinate (State Plane)|25|INT
+Park Facility Name|26|TEXT
+Park Borough|27|TEXT
+School Name|28|TEXT
+School Number|29|TEXT
+School Region|30|TEXT
+School Code|31|TEXT
+School Phone Number|32|TEXT
+School Address|33|TEXT
+School City|34|TEXT
+School State|35|TEXT
+School Zip|36|INT
+School Not Found|37|BOOLEAN
+School or Citywide Complaint|38|TEXT
+Vehicle Type|39|TEXT
+Taxi Company Borough|40|TEXT
+Taxi Pick Up Location|41|TEXT
+Bridge Highway Name|42|TEXT
+Bridge Highway Direction|43|TEXT
+Road Ramp|44|TEXT
+Bridge Highway Segment|45|TEXT
+Garage Lot Name|46|TEXT
+Ferry Direction|47|TEXT
+Ferry Terminal Name|48|TEXT
+Latitude|49|FLOAT
+Longitude|50|FLOAT
+Location|51|TEXT
