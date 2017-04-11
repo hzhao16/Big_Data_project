@@ -10,25 +10,6 @@ from datetime import datetime
 import re
 
 def column_analysis(column, sc):
-	spark = SQLContext(sc)
-	#c = spark.createDataFrame(column)
-	#column.createOrReplaceTempView("column")
-	#stats = spark.sql("SELECT cluster, c_v, c_s, c_o, count(*) AS num, max(dist) AS maxdist, avg(dist) AS avgdist,stddev_pop(dist) AS stdev FROM sd GROUP BY cluster, c_v, c_s, c_o ORDER BY cluster")
-	#stats = spark.sql("SELECT max(c) AS max_num, avg(c) AS avg_num,stddev_pop(c) AS stdev FROM c")
-	
-
-	stats = spark.createDataFrame(column.countByValue())
-
-
-
-	#c.describe().show()
-	# = column.countByValue()
-	#output = column.map(lambda x: type(x))
-	#output.saveAsTextFile('try.out')
-	#stats.saveAsTextFile('try.out')
-
-	stats.write.format("csv").save("try.out")
-
 
 def column_type(column, basic_type, semantic_type):
     output = column.map(lambda x: basic_type + '\t' + semantic_type + '\t' +  check_valid(x, semantic_type))
@@ -36,26 +17,26 @@ def column_type(column, basic_type, semantic_type):
    
 def check_valid(x, semantic_type):
     if semantic_type == 'Unique_Key':
-	if x == '' or x == 'N/A': 
-    	    return 'NULL'
-	else:
-	    try:
-	        x = int(x)
-	        return 'Valid'
-	    except:
- 	        return 'Invalid'
+    	if x == '' or x == 'N/A': 
+        	    return 'NULL'
+    	else:
+    	    try:
+    	        x = int(x)
+    	        return 'Valid'
+    	    except:
+     	        return 'Invalid'
     elif semantic_type == 'Created_Date':
-        if x == '' or x == 'N/A' or x == 'Unspecified':
-	    return 'NULL'
-	try:
-	    date = datetime.strptime(x, '%b %d %Y %I:%M%p')
-	    if date.year <= 2017 and date.year >= 2010:
-		return 'Valid'
-	    else:
-		return 'Invalid'
-	except:
-	    return 'Invalid'  
-	return 'False'    
+            if x == '' or x == 'N/A' or x == 'Unspecified':
+    	    return 'NULL'
+    	try:
+    	    date = datetime.strptime(x, '%b %d %Y %I:%M%p')
+    	    if date.year <= 2017 and date.year >= 2010:
+    		return 'Valid'
+    	    else:
+    		return 'Invalid'
+    	except:
+    	    return 'Invalid'  
+    	return 'False'    
     elif semantic_type == 'Closed_Date':
         if x == '' or x == 'N/A' or x == 'Unspecified':
             return 'NULL'
