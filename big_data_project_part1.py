@@ -17,53 +17,57 @@ def column_type(column, basic_type, semantic_type):
    
 def check_valid(x, semantic_type):
     if semantic_type == 'Unique_Key':
-    	if x == '' or x == 'N/A': 
-        	    return 'NULL'
-    	else:
-    	    try:
-    	        x = int(x)
-    	        return 'Valid'
-    	    except:
-     	        return 'Invalid'
-    elif semantic_type == 'Created_Date':
-            if x == '' or x == 'N/A' or x == 'Unspecified':
+	if x == '' or x == 'N/A': 
     	    return 'NULL'
-    	try:
-    	    date = datetime.strptime(x, '%b %d %Y %I:%M%p')
-    	    if date.year <= 2017 and date.year >= 2010:
-    		return 'Valid'
-    	    else:
-    		return 'Invalid'
-    	except:
-    	    return 'Invalid'  
-    	return 'False'    
+	else:
+	    try:
+	        x = int(x)
+	        return 'Valid'
+	    except:
+ 	        return 'Invalid'
+
+    elif semantic_type == 'Created_Date':
+        if x == '' or x == 'N/A' or x == 'Unspecified':
+	    return 'NULL'
+	try:
+	    date = datetime.strptime(x, '%m/%d/%Y %I:%M:%S %p')
+	    if date.year <= 2017 and date.year >= 2010:
+		return 'Valid'
+	    else:
+		return 'Invalid'
+	except:
+	    return 'Invalid'
+    
     elif semantic_type == 'Closed_Date':
         if x == '' or x == 'N/A' or x == 'Unspecified':
             return 'NULL'
         try:
-            date = datetime.strptime(x, '%b %d %Y %I:%M%p')
+            date = datetime.strptime(x, '%m/%d/%Y %I:%M:%S %p')
             if date.year <= 2017 and date.year >= 2010:
                 return 'Valid'
             else:
                 return 'Invalid'
         except:
-            return 'Invalid'  
-        return 'False'
+            return 'Invalid' 
+ 
     elif semantic_type == 'Agency':
         if x == '' or x == 'N/A' or x == 'Unspecified':
             return 'NULL'
         else:
             return 'Valid'
+
     elif semantic_type == 'Agency_Name':
         if x == '' or x == 'N/A' or x == 'Unspecified':
             return 'NULL'
         else:
             return 'Valid'
+
     elif semantic_type == 'Complaint_Type':
         if x == '' or x == 'N/A' or x == 'Unspecified':
             return 'NULL'
         else:
-            return 'Valid'	
+            return 'Valid'
+	
     elif semantic_type == 'Descriptor':
         if x == '' or x == 'N/A' or x == 'Unspecified':
             return 'NULL'
@@ -253,28 +257,26 @@ def check_valid(x, semantic_type):
         if x == '':
             return 'NULL'
         try:
-            date = datetime.strptime(x, '%b %d %Y %I:%M%p')
+            date = datetime.strptime(x, '%m/%d/%Y %I:%M:%S %p')
             if date.year <= 2017 and date.year >= 2010:
                 return 'Valid'
             else:
                 return 'Invalid'
         except:
             return 'Invalid'
-        return 'False'
-
+        
     elif semantic_type == 'Resolution_Action_Updated_Date':
         if x == '' or x == 'N/A' or x == 'Unspecified':
             return 'NULL'
         try:
-            date = datetime.strptime(x, '%b %d %Y %I:%M%p')
+            date = datetime.strptime(x, '%m/%d/%Y %I:%M:%S %p')
             if date.year <= 2017 and date.year >= 2010:
                 return 'Valid'
             else:
                 return 'Invalid'
         except:
             return 'Invalid'
-        return 'False'
-
+        
     elif semantic_type == 'Community_Board':
         if x.upper() == '0 UNSPECIFIED':
             return 'NULL'
