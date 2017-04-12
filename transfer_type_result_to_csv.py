@@ -1,10 +1,4 @@
 import pandas as pd
-column_name = []
-valid_number = []
-null_number = []
-Invalid_number = []
-non_empty_missing_data_number = []
-
 f_read = open("type_result.txt", 'r')
 #f_write = open("type_result.csv", 'w')
 
@@ -12,8 +6,9 @@ column_index = 0
 result = [[] for i in range(52)]
 for lines in f_read.readlines():
 	if lines.startswith('Column'):
+		lines = lines.replace(' ', '').strip()
 		result[int(column_index)] = [0] * 5
-		result[int(column_index)][0] = lines[8:]
+		result[int(column_index)][0] = lines[7:]
 	if lines.startswith('Valid'):
 		lines = lines.replace('\t', '').strip()
 		result[int(column_index)][1] = lines[5:]
