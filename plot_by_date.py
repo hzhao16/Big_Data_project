@@ -1,26 +1,27 @@
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-import matplotlib.cbook as cbook
 from datetime import datetime
-years = mdates.YearLocator()   # every year
-months = mdates.MonthLocator()  # every month
-yearsFmt = mdates.DateFormatter('%Y')
+import numpy as np
+import pandas as pd
 
 f1 = open('count_month.out','r')
 xx = []
 yy = []
 for line in f1.readlines():
-	month = line.split('\t')[0][1:-1].replace(", ","/")
+	month = line.split('\t')[0][1:-1].replace(", ","-")
 	xx.append(month)
 	yy.append(int(line.split('\t')[1]))
-xx = [datetime.strptime(i, '%Y/%m') for i in xx]
+date = xx[::3]
 
-plt.figure(figsize=[40,30])
+plt.figure(figsize=[15,12])
 plt.plot(yy[:-1],'o-')
-#plt.xticks(range(2),[1,2], size='small')
+plt.xticks(np.arange(0,len(yy),3),date,size='small',rotation='70')
+plt.title('Number of Complaints per month')
+plt.xlabel('Month')
+plt.ylabel('Number of Complaints')
 plt.savefig('month.png')
 f1.close()
-
+plt.clf()
 
 f2 = open('count_day.out','r')
 xx = []
@@ -29,8 +30,16 @@ for line in f2.readlines():
 	day = line.split('\t')[0]
 	xx.append(day)
 	yy.append(int(line.split('\t')[1]))
-plt.figure(figsize=[40,30])
-plt.plot(yy)
-#plt.xticks(range(len(yy)), xx, size='small')
+date = [datetime.strptime(x,'%Y/%m/%d') for x in xx]
+plt.figure(figsize=[15,12])
+l = pd.Series(data=yy,index=date)
+l.plot()
+plt.title('Number of Complaints per day')
+plt.xlabel('Time')
+plt.ylabel('Number of Complaints')
 plt.savefig('day.png')
 f2.close()
+
+
+
+
