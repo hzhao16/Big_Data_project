@@ -10,9 +10,9 @@ from datetime import datetime
 
 sc = SparkContext()
 
-csvfile = sc.textFile('/user/hw1567/big_data_project_dataset/311.csv',1)
+csvfile = sc.textFile('/user/jub205/311all.csv')
 header = csvfile.first()
-for i in range(5,6):
+for i in range(52):
 	data = csvfile.filter(lambda x: x != header)
     data = data.map(lambda x:x.encode('utf-8','ignore'))
 	data = data.mapPartitions(lambda x: reader(x))
