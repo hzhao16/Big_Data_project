@@ -532,7 +532,8 @@ def check_valid(x, semantic_type):
 def main():
     sc = SparkContext()
    
-    csvfile = sc.textFile('/user/hw1567/big_data_project_dataset/311.csv',1)
+    #csvfile = sc.textFile('/user/hw1567/big_data_project_dataset/311.csv',1)
+    csvfile = sc.textFile('/user/jub205/311all.csv',1)
 
     header = csvfile.first()
 
