@@ -4,7 +4,7 @@ import pandas as pd
 import seaborn as sns
 import random
 
-f1 = open('count_5.out','r')
+f1 = open('../output/count_5.out','r')
 complaint_type = []
 count_number = []
 for line in f1.readlines():
