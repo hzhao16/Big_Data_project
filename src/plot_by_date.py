@@ -3,7 +3,7 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 
-f = open('count_month.out','r')
+f = open('../output/count_month.out','r')
 xx = []
 yy = []
 for line in f.readlines():
@@ -18,11 +18,11 @@ plt.xticks(np.arange(0,len(yy),3),date,size='small',rotation='70')
 plt.title('Number of Complaints per month')
 plt.xlabel('Month')
 plt.ylabel('Number of Complaints')
-plt.savefig('month.png')
+plt.savefig('../plots/month.png')
 f.close()
 plt.clf()
 
-f = open('count_day.out','r')
+f = open('../output/count_day.out','r')
 xx = []
 yy = []
 for line in f.readlines():
@@ -36,7 +36,7 @@ l.plot()
 plt.title('Number of Complaints per day')
 plt.xlabel('Time')
 plt.ylabel('Number of Complaints')
-plt.savefig('day.png')
+plt.savefig('../plots/day.png')
 f.close()
 
 
