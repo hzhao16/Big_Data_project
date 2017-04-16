@@ -7,16 +7,15 @@ Valid	15413188
 Column: Created_Date
 Base Type: DATETIME
 Semantic Type: Created_Date
-Valid	14923581
-Invalid	489607
+Valid	15413188
 
 
 Column: Closed_Date
 Base Type: DATETIME
 Semantic Type: Closed_Date
-Valid	14396187
+Valid	14873571
 NULL	533541
-Invalid	483460
+Invalid	6076
 
 
 Column: Agency
@@ -57,9 +56,9 @@ Non-empty missing data	84786
 Column: Incident_Zip
 Base Type: INT
 Semantic Type: Incident_Zip
-Valid	14317979
+Valid	14315648
 NULL	1092972
-Invalid	1270
+Invalid	3601
 Non-empty missing data	967
 
 
@@ -159,16 +158,16 @@ Column: Due_Date
 Base Type: DATETIME
 Semantic Type: Due_Date
 NULL	9333649
-Valid	5986577
-Invalid	92962
+Valid	6069842
+Invalid	9697
 
 
 Column: Resolution_Action_Updated_Date
 Base Type: DATETIME
 Semantic Type: Resolution_Action_Updated_Date
-Valid	14612125
-Invalid	486111
+Valid	15097944
 NULL	314952
+Invalid	292
 
 
 Column: Community_Board

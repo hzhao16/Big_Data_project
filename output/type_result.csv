@@ -1,1 +1,53 @@
-Column Name,Number of Valid Value,Number of NULL Value,Number of Invalid Value,Number of Non-Empty Missing ValueUnique_Key,15413188,0,0,0Created_Date,14923581,0,"	489607",0Closed_Date,14396187,533541,"	483460",0Agency,15413188,0,0,0Agency_Name,15413188,0,0,0Complaint_Type,15413187,0,0,"	1"Descriptor,15270034,818,0,"	142336"Location_Type,11345040,3983362,0,"	84786"Incident_Zip,14317979,1092972,"	1270","	967"Incident_Address,11964601,3427426,"	20219","	942"Street_Name,11924042,3427542,"	60823","	781"Cross_Street_1,10229980,4525081,"	653011","	5116"Cross_Street_2,10201481,4588542,"	613503","	9662"Intersection_Street_1,2333261,12967433,"	112433","	61"Intersection_Street_2,0,12970374,0,"	2442814"Address_Type,14694494,718694,0,0City,14325630,1086448,"	216","	894"Landmark,8491,15404691,0,"	6"Facility_Type,3608878,18752,0,"	11785558"Status,15413121,34,0,"	33"Due_Date,5986577,9333649,"	92962",0Resolution_Action_Updated_Date,14612125,314952,"	486111",0Community_Board,13893757,0,0,"	1519431"Borough,13893757,0,0,"	1519431"X_Coordinate_State_Plane,13773444,1639744,0,0Y_Coordinate_State_Plane,13773444,1639744,0,0Park_Facility_Name,93538,0,0,"	15319650"Park_Borough,13893757,0,0,"	1519431"School_Name,93538,0,0,"	15319650"School_Number,90350,2850,0,"	15319988"School_Region,15227,78311,0,"	15319650"School_Code,15235,78303,0,"	15319650"School_Phone_Number,76242,0,0,"	15336946"School_Address,93538,0,0,"	15319650"School_City,93538,0,0,"	15319650"School_State,93538,0,0,"	15319650"School_Zip,0,0,0,"	15319651"School_Not_Found,5924640,9488548,0,0School_or_Citywide_Complaint,3992,15409196,0,0Vehicle_Type,7974,15405214,0,0Taxi_Company_Borough,13368,15399820,0,0Taxi_Pick_Up_Location,123117,15290071,0,0Bridge_Highway_Name,42691,15370497,0,0Bridge_Highway_Direction,42629,15370513,0,"	46"Road_Ramp,42285,15370536,0,"	367"Bridge_Highway_Segment,42188,15364089,"	6517","	394"Garage_Lot_Name,5086,15408102,0,0Ferry_Direction,3564,15407314,0,"	2310"Ferry_Terminal_Name,10290,15341563,0,"	61335"Latitude,13773441,1639744,"	3",0Longitude,13773441,1639744,"	3",0Location,13773441,1639744,"	3",0
+,0,1,2,3,4
+0,Unique_Key,15413188,0,0,0
+1,Created_Date,15413188,0,0,0
+2,Closed_Date,14873571,533541,	6076,0
+3,Agency,15413188,0,0,0
+4,Agency_Name,15413188,0,0,0
+5,Complaint_Type,15413187,0,0,	1
+6,Descriptor,15270034,818,0,	142336
+7,Location_Type,11345040,3983362,0,	84786
+8,Incident_Zip,14315648,1092972,	3601,	967
+9,Incident_Address,11964601,3427426,	20219,	942
+10,Street_Name,11924042,3427542,	60823,	781
+11,Cross_Street_1,10229980,4525081,	653011,	5116
+12,Cross_Street_2,10201481,4588542,	613503,	9662
+13,Intersection_Street_1,2333261,12967433,	112433,	61
+14,Intersection_Street_2,0,12970374,0,	2442814
+15,Address_Type,14694494,718694,0,0
+16,City,14325630,1086448,	216,	894
+17,Landmark,8491,15404691,0,	6
+18,Facility_Type,3608878,18752,0,	11785558
+19,Status,15413121,34,0,	33
+20,Due_Date,6069842,9333649,	9697,0
+21,Resolution_Action_Updated_Date,15097944,314952,	292,0
+22,Community_Board,13893757,0,0,	1519431
+23,Borough,13893757,0,0,	1519431
+24,X_Coordinate_State_Plane,13773444,1639744,0,0
+25,Y_Coordinate_State_Plane,13773444,1639744,0,0
+26,Park_Facility_Name,93538,0,0,	15319650
+27,Park_Borough,13893757,0,0,	1519431
+28,School_Name,93538,0,0,	15319650
+29,School_Number,90350,2850,0,	15319988
+30,School_Region,15227,78311,0,	15319650
+31,School_Code,15235,78303,0,	15319650
+32,School_Phone_Number,76242,0,0,	15336946
+33,School_Address,93538,0,0,	15319650
+34,School_City,93538,0,0,	15319650
+35,School_State,93538,0,0,	15319650
+36,School_Zip,0,0,0,	15319651
+37,School_Not_Found,5924640,9488548,0,0
+38,School_or_Citywide_Complaint,3992,15409196,0,0
+39,Vehicle_Type,7974,15405214,0,0
+40,Taxi_Company_Borough,13368,15399820,0,0
+41,Taxi_Pick_Up_Location,123117,15290071,0,0
+42,Bridge_Highway_Name,42691,15370497,0,0
+43,Bridge_Highway_Direction,42629,15370513,0,	46
+44,Road_Ramp,42285,15370536,0,	367
+45,Bridge_Highway_Segment,42188,15364089,	6517,	394
+46,Garage_Lot_Name,5086,15408102,0,0
+47,Ferry_Direction,3564,15407314,0,	2310
+48,Ferry_Terminal_Name,10290,15341563,0,	61335
+49,Latitude,13773441,1639744,	3,0
+50,Longitude,13773441,1639744,	3,0
+51,Location,13773441,1639744,	3,0

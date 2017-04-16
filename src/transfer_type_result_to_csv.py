@@ -1,5 +1,5 @@
 import pandas as pd
-f_read = open("type_result.txt", 'r')
+f_read = open("../output/type_result.txt", 'r')
 #f_write = open("type_result.csv", 'w')
 
 column_index = 0
@@ -24,5 +24,5 @@ for lines in f_read.readlines():
 	if lines == '\n':
 		column_index += 0.5
 re = pd.DataFrame(result)
-re.to_csv('type_result.csv')
+re.to_csv('../output/type_result.csv')
 f_read.close()

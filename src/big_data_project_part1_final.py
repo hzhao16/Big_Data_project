@@ -9,8 +9,6 @@ from pyspark.sql import SQLContext
 from datetime import datetime
 import re
 
-#def column_analysis(column, sc):
-
 def column_type(column, basic_type, semantic_type):
     output = column.map(lambda x: basic_type + '\t' + semantic_type + '\t' +  check_valid(x, semantic_type))
     output.saveAsTextFile('Type_{0}.out'.format(semantic_type))	
@@ -541,12 +539,11 @@ def main():
 
     column_txt = sc.textFile('/user/hw1567/big_data_project_dataset/columns.txt').map(lambda line: line.split('|'))
     column_basic_type = column_txt.map(lambda line: line[2]).collect()
-    column_semantic_type = column_txt.map(lambda line: line[0]).collect()
+    column_semantic_type = column_txt.map(lambda line: line[3]).collect()
     
     for i in range(52):
-	column_data = data.map(lambda x: x[i])
-	column_type(column_data, column_basic_type[i], column_semantic_type[i])
-	#column_analysis(via_name, sc)
+		column_data = data.map(lambda x: x[i])
+		column_type(column_data, column_basic_type[i], column_semantic_type[i])
 
     sc.stop()
 
