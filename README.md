@@ -23,8 +23,24 @@ Dataset is also available on NYU HPC HDFS, **/user/jub205/311all.csv**
 ## Data Quality Issues
 We first generated columns.txt for base type and semantic type of each columns, which can be accessed at **/user/jub205/columns.txt**.
 
-Then for the summary of data quality, which is counting the number of empty/missing/invalid values in each column, sign in to dumbo, and run
+For data quality issues, first we count the number of empty/missing/invalid values in each column. Sign in to dumbo, and run
 ```sh
 $ spark-submit data_quality.py
 ```
+To generate a summary of the results generated, run
+```sh
+$ spark-submit type_quality.py
+```
 
+## Data Summary
+
+### Figure 2
+We first run count.py to count the frequency of values in each column, and get the output file count_month.out in the folder Output. Then run locally
+```sh
+$ python plot_by_month.py
+```
+### Figure 4
+We first run count.py to count the frequency of values in each column, and get the output file count_5.out in the folder Output. Then run locally
+```sh
+$ python plot_by_complaint_type.py
+```
