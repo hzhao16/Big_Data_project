@@ -9,9 +9,9 @@ from pyspark.sql import SQLContext
 from datetime import datetime
 import re
 
-def column_type(column, basic_type, semantic_type):
+def column_type(column, basic_type, semantic_type, column_name):
     output = column.map(lambda x: basic_type + '\t' + semantic_type + '\t' +  check_valid(x, semantic_type))
-    output.saveAsTextFile('Type_{0}.out'.format(semantic_type))	
+    output.saveAsTextFile('Type_{0}.out'.format(column_name))	
    
 def check_valid(x, semantic_type):
     if semantic_type == 'Unique_Key':
@@ -537,13 +537,15 @@ def main():
 
     data = csvfile.filter(lambda x: x != header).map(lambda x:x.encode('utf-8','ignore')).mapPartitions(lambda line: reader(line))
 
-    column_txt = sc.textFile('/user/hw1567/big_data_project_dataset/columns.txt').map(lambda line: line.split('|'))
+    column_txt = sc.textFile('/user/jub205/columns.txt').map(lambda line: line.split('|'))
+    #column_txt = sc.textFile('/user/hw1567/big_data_project_dataset/columns.txt').map(lambda line: line.split('|'))
+    column_name = column_txt.map(lambda line: line[0]).collect()
     column_basic_type = column_txt.map(lambda line: line[2]).collect()
     column_semantic_type = column_txt.map(lambda line: line[3]).collect()
     
     for i in range(52):
 		column_data = data.map(lambda x: x[i])
-		column_type(column_data, column_basic_type[i], column_semantic_type[i])
+		column_type(column_data, column_basic_type[i], column_semantic_type[i], column_name[i])
 
     sc.stop()
 
