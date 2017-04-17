@@ -50,3 +50,29 @@ We first run count.py to count the frequency of values in each column, and get t
 ```sh
 $ python plot_by_complaint_type.py
 ```
+
+Python script, analysis.py in src directory contains functions to compute frequency of values in different columns in various time frequency.For example, if a user wants to get the frequency of values in "city" column in each year, the following function call can be used.
+
+count_column_date(data, ind = 16, date='y', fname = "city.out")
+
+data is an RDD of data file/csv file, ind is the index of the column(Details on column index can be found in columns.txt), date is the time frequency, 'y' is for year, 'ym' is year/month, 'ymd' is for full date. fname is the output file name.
+
+The above count_column_date function call will compute the frequency of values in city column by year.
+
+Running analysis.py will generate counts on different columns with various date frequency.
+
+```sh
+$ spark-submit analysis.py /user/jub205/311all.csv
+```
+
+In order to get output, you can run the following command.
+
+```sh
+$ hfs -getmerge <output filename> <name you want to save as>
+```
+
+After getting all the output files, visualize.py can be run to plot figures in the report.
+
+```sh
+$ python visualize.py
+```
