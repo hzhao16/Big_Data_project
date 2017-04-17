@@ -1,8 +1,0 @@
-BOOLEAN    	1
-FLOAT    	2
-DATETIME    	4
-INT    	5
-NOMINAL    	6
-TEXT    	34
-
-

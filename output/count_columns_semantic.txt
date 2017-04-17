@@ -1,0 +1,41 @@
+BOOLEAN    	1
+FLOAT    	2
+DATETIME    	4
+INT    	5
+NOMINAL    	6
+TEXT    	34
+
+KEY 1 Unique_Key
+
+DATE 4 Created_Date Closed_Date Due_Date Resolution_Action_Updated_Date 
+
+AGENCY Agency Agency_Name 
+
+STATE School_State 
+
+CITY City School_City 
+
+BOROUGH Borough Taxi_Company_Borough Park_Borough
+
+SCHOOL School_Name School_Region School_Number School_Code School_Not_Found School_or_Citywide_Complaint
+
+TYPE Complaint_Type Location_Type Address_Type Facility_Type Vehicle_Type 
+
+ZIP Incident_Zip School_Zip
+
+ADDRESS Street_Name Incident_Address Cross_Street_1 Cross_Street_2 Intersection_Street_1 Intersection_Street_2 School_Address Taxi_Pick_Up_Location 
+
+GEOLOCATION X_Coordinate_(State_Plane) Y_Coordinate_(State_Plane) Latitude Longitude Location
+
+LOCATION Landmark Community_Board Park_Facility_Name Garage_Lot_Name Bridge_Highway_Direction Road_Ramp Bridge_Highway_Segment Ferry_Direction Ferry_Terminal_Name Bridge_Highway_Name
+
+PHONE School_Phone_Number 
+
+TEXT Descriptor Status
+
+
+
+
+
+
+
