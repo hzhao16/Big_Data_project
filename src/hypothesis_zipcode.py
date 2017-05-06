@@ -3,6 +3,10 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 import os
+from sklearn import linear_model
+import numpy as np
+import statsmodels.api as sm
+from scipy.stats import pearsonr 
 
 income = pd.read_csv('../output/income.csv')
 population = pd.read_csv('../output/population.csv')
@@ -26,7 +30,6 @@ f3['Median age'] = np.asarray([float(i) for i in f3['Median age']])
 f3['Sex ratio (males per 100 females)'] = np.asarray([float(i) for i in f3['Sex ratio (males per 100 females)']])
 f3['Mean income'] = np.asarray([float(i) for i in f3['Mean income']])
 
-from sklearn import linear_model
 
 y = f3['Complaints'].values.reshape(-1, 1)
 x = f3.drop(['Complaints', 'Zipcode'], axis = 1)
@@ -39,14 +42,13 @@ print("Mean squared error: %.2f"
       % np.mean((regr.predict(x) - y) ** 2))
 print('Variance score: %.2f' % regr.score(x, y))
 
-import numpy as np
-import statsmodels.api as sm
+
 x = sm.add_constant(x)
 mod = sm.OLS(np.asarray(y), np.asarray(x))
 res = mod.fit()
 print(res.summary())
 
-from scipy.stats import pearsonr 
+
 r, p = pearsonr(f3['Median age'], f3['Complaints'])
 print('Pearson’s correlation coefficient between Number of complaints and median age is {0} and its 2-tailed p-value is {1}'.format(r, p)+'\n')
 r, p = pearsonr(f3['Sex ratio (males per 100 females)'], f3['Complaints'])
