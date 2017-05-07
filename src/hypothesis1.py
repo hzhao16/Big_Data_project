@@ -47,7 +47,7 @@ ax2.tick_params('y', colors='g')
 
 fig.tight_layout()
 
-plt.title('Correalation between Average Temperature per Month and Number of days with extremely high complaints per Month')
+plt.title('Correalation between Average Temperature per day and Number of complaints per days')
 plt.savefig('../plots/cor1.png')
 
 from scipy.stats import pearsonr 
