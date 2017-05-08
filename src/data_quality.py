@@ -10,7 +10,7 @@ from datetime import datetime
 import re
 
 def column_type(column, basic_type, semantic_type, column_name):
-    output = column.map(lambda x: basic_type + '\t' + semantic_type + '\t' +  check_valid(x, semantic_type))
+    output = column.map(lambda x: basic_type + '\t' + semantic_type + '\t' +  check_valid(x, column_name))
     output.saveAsTextFile('Type_{0}.out'.format(column_name))	
    
 def check_valid(x, semantic_type):
