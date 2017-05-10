@@ -76,3 +76,5 @@ After getting all the output files, visualize.py can be run to plot figures in t
 ```sh
 $ python visualize.py
 ```
+
+## Part 2
