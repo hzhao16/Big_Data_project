@@ -19,7 +19,7 @@ noise_data = noise_data.sort_values('datetime').reset_index(drop=True)
 #Load accident data
 acc_data = pd.read_csv('../output/daily_accident_count.out', sep='\t', header=None)
 acc_data.columns = ['date','acc_count']
-acc_data['datetime'] = noise_data['date'].apply(lambda x: str2datetime(x))
+acc_data['datetime'] = acc_data['date'].apply(lambda x: str2datetime(x))
 acc_data = acc_data.sort_values('datetime').reset_index(drop=True)
 
 df = pd.merge(noise_data, acc_data, on='datetime', how='outer')
