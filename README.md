@@ -93,11 +93,11 @@ $ python hypothesis2.py
 For the third hypothesis: Seasonality of complaints
 
 ```sh
-$ python hypothesis4.py
+$ python hypothesis3.py
 ```
 
 For the fourth hypothesis: Correlation between complaints in some zipcode and census data
 
 ```sh
-$ python hypothesis_zipcode.py
+$ python hypothesis4.py
 ```
