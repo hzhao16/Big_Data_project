@@ -3,64 +3,57 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 import os
+from sklearn import linear_model
+import numpy as np
+import statsmodels.api as sm
+from scipy.stats import pearsonr 
 
-heat = open('../output/day_heat.out')
-heat1 = open('../output/day_not_heat.out')
+income = pd.read_csv('../output/income.csv')
+population = pd.read_csv('../output/population.csv')
+age_sex = pd.read_csv('../output/age_sex.csv')
+zipcode = open('../output/zipcode.out','r')
 
-month = []
-value = []
-for line in heat.readlines():
-    month.append(line.replace('(', ' ').replace(')', ' ').replace(' ', '').strip().split(',')[0])
-    value.append(line.replace('(', ' ').replace(')', ' ').replace(' ', '').strip().split(',')[2])
+zipc = []
+complaints = []
+for line in zipcode.readlines():
+    zipc.append(line.split('\t')[0].strip())
+    complaints.append(int(line.split('\t')[1].strip()))
+    
+zipc = zipc[1:101]
+zipc = [int(x) for x in zipc]
 
-month1 = []
-value1 = []
-for line in heat1.readlines():
-    month1.append(line.replace('(', ' ').replace(')', ' ').replace(' ', '').strip().split(',')[0])
-    value1.append(line.replace('(', ' ').replace(')', ' ').replace(' ', '').strip().split(',')[2])
-
-value = [int(i) for i in value]
-value1 = [int(i) for i in value1]
-
-value2 = np.add(np.array(value), np.array(value1))
-value3 = value / value2
-
-fig, ax1 = plt.subplots(figsize = (12, 8))
-t = np.arange(1, 13)
-ax1.plot(month, value, 'bo-', label = 'Heating Complaints')
-ax1.set_xlabel('Month')
-ax1.set_ylabel('Total number of complaints for heating problems', size = 'xx-large', color='b')
-ax1.tick_params('y', colors='b')
-
-plt.legend(loc = 2)
-
-ax2 = ax1.twinx()
-ax2.plot(month1, value1, 'g*-', label = 'Other Complaints')
-ax2.set_ylabel('Total number of other complaints', size = 'xx-large', color='g')
-ax2.tick_params('y', colors='g')
-plt.legend(loc = 1)
+complaint = pd.DataFrame({'Zipcode': np.asarray(zipc), 'Complaints': np.asarray(complaints[1:101])}, index = np.arange(100))
+f1 = pd.merge(complaint, age_sex, how='left', on=['Zipcode'])
+f2 = pd.merge(f1, population, how='left', on=['Zipcode'])
+f3 = pd.merge(f2, income, how='left', on=['Zipcode'])
+f3['Median age'] = np.asarray([float(i) for i in f3['Median age']])
+f3['Sex ratio (males per 100 females)'] = np.asarray([float(i) for i in f3['Sex ratio (males per 100 females)']])
+f3['Mean income'] = np.asarray([float(i) for i in f3['Mean income']])
 
 
-fig.tight_layout()
+y = f3['Complaints'].values.reshape(-1, 1)
+x = f3.drop(['Complaints', 'Zipcode'], axis = 1)
 
-plt.title('Heating complaints VS Other complaints')
-plt.savefig('../plots/cor41.png')
+regr = linear_model.LinearRegression()
+regr.fit(x, y)
 
-fig, ax1 = plt.subplots(figsize = (12, 8))
-t = np.arange(1, 13)
-ax1.plot(month, value, 'bo-', label = 'Heating Complaints')
-ax1.set_xlabel('Month')
-ax1.set_ylabel('Total number of complaints for heating problems', size = 'xx-large', color='b')
-ax1.tick_params('y', colors='b')
-plt.legend(loc = 2)
+print('Coefficients: \n', regr.coef_)
+print("Mean squared error: %.2f"
+      % np.mean((regr.predict(x) - y) ** 2))
+print('Variance score: %.2f' % regr.score(x, y))
 
-ax2 = ax1.twinx()
-ax2.plot(month1, value3, 'g*-', label = 'Percentage')
-ax2.set_ylabel('Percentage of heating complaints', size = 'xx-large', color='g')
-ax2.tick_params('y', colors='g')
-plt.legend(loc = 1)
 
-fig.tight_layout()
+x = sm.add_constant(x)
+mod = sm.OLS(np.asarray(y), np.asarray(x))
+res = mod.fit()
+print(res.summary())
 
-plt.title('Heating complaints and its percentage of all complaints')
-plt.savefig('../plots/cor42.png')
+
+r, p = pearsonr(f3['Median age'], f3['Complaints'])
+print('Pearson’s correlation coefficient between Number of complaints and median age is {0} and its 2-tailed p-value is {1}'.format(r, p)+'\n')
+r, p = pearsonr(f3['Sex ratio (males per 100 females)'], f3['Complaints'])
+print('Pearson’s correlation coefficient between Number of complaints and Sex ratio (males per 100 females) is {0} and its 2-tailed p-value is {1}'.format(r, p)+'\n')
+r, p = pearsonr(f3['Mean income'], f3['Complaints'])
+print('Pearson’s correlation coefficient between Number of complaints and Mean income is {0} and its 2-tailed p-value is {1}'.format(r, p)+'\n')
+r, p = pearsonr(f3['Population'], f3['Complaints'])
+print('Pearson’s correlation coefficient between Number of complaints and Population is {0} and its 2-tailed p-value is {1}'.format(r, p)+'\n')
