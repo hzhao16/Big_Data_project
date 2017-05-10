@@ -77,4 +77,27 @@ After getting all the output files, visualize.py can be run to plot figures in t
 $ python visualize.py
 ```
 
-## Part 2
+## Part 2 Hypothesis Test
+
+For the first hypothesis: Correalation between Average Temperature per day and Number of complaints per days
+```sh
+$ python hypothesis1.py
+```
+
+For the second hypothesis: Correalation between Average Temperature per Month and Number of days with extremely high complaints per Month
+
+```sh
+$ python hypothesis2.py
+```
+
+For the third hypothesis: Seasonality of complaints
+
+```sh
+$ python hypothesis4.py
+```
+
+For the fourth hypothesis: Correlation between complaints in some zipcode and census data
+
+```sh
+$ python hypothesis_zipcode.py
+```
