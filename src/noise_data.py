@@ -63,5 +63,8 @@ if __name__ == "__main__":
     
     #Count number of noise complaints by date
     count_complain_date(data, date='ymd', fname = "daily_noise.out")
+    count_complain_date(data, date='ym', fname = 'monthly_noise.out')
+    count_complain_date(data, date='m', fname ='month_noise.out')
+
 
     sc.stop()
