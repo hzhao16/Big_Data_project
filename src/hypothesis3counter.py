@@ -28,8 +28,8 @@ day2 = data2.map(lambda x: ((x[0].month, 'Others'),1)).reduceByKey(lambda x,y:x+
 
 day2 = day2.sortBy(lambda x:x[0])
 
-day2.saveAsTextFile('day2.out')
-day1.saveAsTextFile('day1.out')
+day2.saveAsTextFile('day_not_heat.out')
+day1.saveAsTextFile('day_heat.out')
 
 sc.stop()
 
