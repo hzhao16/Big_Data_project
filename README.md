@@ -79,18 +79,24 @@ $ python visualize.py
 
 ## Part 2 Hypothesis Test
 
-For the first hypothesis: Correalation between Average Temperature per day and Number of complaints per days
+For the first hypothesis: Correalation between Average Temperature per day and Number of complaints per days, run locally
 ```sh
 $ python hypothesis1.py
 ```
 
-For the second hypothesis: Correalation between Average Temperature per Month and Number of days with extremely high complaints per Month
+For the second hypothesis: Correalation between Average Temperature per Month and Number of days with extremely high complaints per Month, run locally
 
 ```sh
 $ python hypothesis2.py
 ```
 
-For the third hypothesis: Seasonality of complaints
+For the third hypothesis: Seasonality of complaints. We need to first count the total number of heating problems and other problems for each month by running on spark:
+
+```sh
+$ spark-submit hypothesis3counter.py
+```
+
+Then we can test our hypothesis by running locally:
 
 ```sh
 $ python hypothesis3.py
