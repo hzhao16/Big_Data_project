@@ -90,7 +90,7 @@ For the second hypothesis: Correalation between Average Temperature per Month an
 $ python hypothesis2.py
 ```
 
-For the third hypothesis: Seasonality of complaints. We need to first count the total number of heating problems and other problems for each month by running on spark:
+For the third hypothesis: Seasonality of complaints, we need to first count the total number of heating problems and other problems for each month by running on spark:
 
 ```sh
 $ spark-submit hypothesis3counter.py
@@ -102,7 +102,7 @@ Then we can test our hypothesis by running locally:
 $ python hypothesis3.py
 ```
 
-For the fourth hypothesis: Correlation between complaints in some zipcode and census data
+For the fourth hypothesis: Correlation between complaints in some zipcode and census data, run locally
 
 ```sh
 $ python hypothesis4.py
